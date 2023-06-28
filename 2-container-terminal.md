@@ -1,5 +1,5 @@
 <h1>
-Introdução do docker
+Comando para listar container
 </h1>
 
 Aul de introdução ao `docker`.
@@ -19,8 +19,6 @@ O comando `ps -a` é utilizado para mostra os containers que estão em execuçã
 ```
 docker ps -a
 ```
-
-<!--  -->
 
 <b>run</b>
 
@@ -53,7 +51,7 @@ O comando `-it` é o mesmo que `-i -t`. Sendo que
 
 <!--  -->
 
-<b>run -it --rm</b> <i>nome_img comand</i>
+<b id="rm" >run -it --rm</b> <i>nome_img comand</i>
 
 O comando <code>docker run -it --rm</code> é utilizado para criar um container que após ser finalizado é excluido do docker.
 
@@ -71,7 +69,7 @@ O comando `--name` é utilizado par dar um nome para o container no momento da c
 docker run --name nginx nginx
 ```
 
-<b>start</b>
+<b id="start">start</b>
 
 O comando <code>docker start</code> é utilizado para executar um container que está parado.
 
@@ -201,45 +199,6 @@ docker run -d --name nginx -p 8080:80 --mount type=bind,source=/home/aquila/volu
 - `source` é onde é colocado o caminho da pasta na maquina local
 - `target` é onde é colocado o caminho da pasta no container
 - O `type` tem que ser definido como `bind`
-
-<h2>Volume</h2>
-
-O `volume` é um recurso do `docker` que server para compartilhar dados entre diferentes containers no `docker host`.
-
-Os camando quando se trabalha com volume
-
-
-- `prune` ...
-- `rm` ...
-
-<b>ls</b>
-
-O comando `ls` listar os volumes
-```
-docker volume ls
-```
-<b>create</b>
-
-O comando `create` é utilizado para criação de volume
-```
-docker volume create meuvolume
-```
-- O `meuvolume` é o nome do volume para ser criado
-
-<b>inspect</b>
-
-O comando `inspect` é utilizado para mostrar informações sobre o volume. Informações como: data de criação, scope etc.
-```
-docker volume inspect meuvole
-```
-- `meuvolume` é o nome do volume para inspecionar.
-
-<b>prune</b>
-
-O comando `prune` é utilizado para excluir os dados de todos os volumes que não estão sendo utilizando no `docker host`.
-```
-docker volume prune
-```
 
 <b>Utilizando o volume em um container</b>
 
