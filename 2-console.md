@@ -42,7 +42,8 @@ docker run hello-world
 
 <b>run -it</b>
 
-O comando `-it` significa que tem passagem de comando, após o nome da imagem.
+O comando `-it` é para executar o terminal no modo interativo, mas dependendo da imagem isso não funciona. É comun
+usa este comando com o `bash` para que execute o terminal no modo interativo no container.
 
 ```
 docker run -it ubuntu bash
