@@ -10,7 +10,7 @@
         </a>
     </li>
     <li>
-        <a heref="#prune">
+        <a href="#prune">
             Remover todoas as networks que não estão sendo utilizada
         </a>
     </li>
@@ -25,12 +25,17 @@
         </a>
     </li>
     <li>
-        <a href="bridge_caso">
+        <a href="#bridge_caso">
             Rede Bridge - problema resolução de nome na criação de container na rede default
         </a>
     </li>
     <li>
-        <a href="#bridge_run_network">
+        <a href="#host_caso">
+            Host - Acessando um ip local da máquina onde está instalado o docker de dentro do container
+        </a>
+    </li>
+    <li>
+        <a href="#run_network">
             Criação de container especificando uma network
         </a>
     </li>
@@ -102,11 +107,45 @@ Logando no `ubuntu1` execute o comando
 ping ubuntu2
 ```
 
-<b id="bridge_run_network">Criação de container especificando uma network</b>
+<b id="host_caso">Host - Acessando um ip local da máquina onde está instalado o docker de dentro do container</b>
+
+Defina uma container na rede `host`
+```
+docker run --rm -it --network host  --name ub1 1aquila1/ubuntu bash
+```
+
+No linux acessa como `http://ip:porta`
+```bash
+# Acessando o nextjs
+curl http://localhost:3000
+```
+
+No windows ou mac `http://host.docker.internal:portal`
+```bash
+#Acessando o nextjs
+curl http://host.docker.internal:3000
+```
+
+
+<b id="host_caso2">Host - Acessando uma aplicação na porta padrão sem expor através do comando <code>-p</code></b>
+
+Quando é criado um container com o tipo de rede `host` sem expecificar a porta a aplicação que está executando no container é acessado.
+
+```
+docker run -d --name ng1 --network host nginx
+```
+Agora é acessa a página inicial do nginx na porta padrão
+```
+curl http://localhost
+```
+
+
+<b id="run_network">Criação de container especificando uma network</b>
 
 ```
 docker run -it --name ubuntu1 --network minharede ubuntu bash
 ```
+- Em `minharede`, pode ser qualquer uma disponível no drive de rede do `docker`. 
 
 <b id="network_connect">Coneta um container em uma rede</b>
 
