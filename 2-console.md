@@ -228,3 +228,14 @@ docker run -d --name nginx -p 8080:80 --mount type=volume,source=meuvolume,targe
 ```
 docker run --name ng3 -d -v meuvolume:/app nginx
 ```
+
+<h3>Logs</h3>
+
+Após executar ou criar um container, podemos ver os logs dele através do comando:
+```
+docker logs id_container ou nome
+```
+Exemplo: Acessando o logs de um container pelo nome dele.
+```
+docker logs laravel
+```
