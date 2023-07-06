@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  laravel:
+    image: 1aquila1/laravel:prod
+    container_name: laravel
+    networks:
+      - minharede
+  nginx:
+    image: 1aquila1/nginx:prod
+    container_name: nginx
+    networks:
+      - minharede
+    ports:
+      - "8080:80"
+
+networks:
+  minharede:
+    driver: bridge
