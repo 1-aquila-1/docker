@@ -1,0 +1,23 @@
+FROM ubuntu:latest
+
+RUN apt update && \
+    apt install iputils-ping -y && \
+    apt install curl -y && \
+    curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+
+RUN apt update && \
+    apt install nodejs -y
+
+RUN npm install --global yarn
+
+RUN useradd -m node
+
+USER node
+
+WORKDIR /home/node
+
+
+
+
+
+
